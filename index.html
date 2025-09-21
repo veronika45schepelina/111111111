@@ -3780,6 +3780,9 @@
             // Обновляем видимость элементов навигации
             document.querySelector(".nav-auth").style.display = "none";
             document.querySelector(".nav-logout").style.display = "flex";
+            if (type === "specialist") {
+              document.querySelectorAll(".mobile-menu .nav-item").forEach(item => item.style.display = "none");
+            }
             window.scrollTo(0, 0);
         }
 
@@ -4274,6 +4277,7 @@
                 // Обновляем navbar: показываем menu и auth, скрываем logout
                 document.querySelector(".nav-auth").style.display = "flex";
                 document.querySelector(".nav-logout").style.display = "none";
+                document.querySelectorAll(".mobile-menu .nav-item").forEach(item => item.style.display = "block");
 
                 showNotification("Вы вышли из системы", "info");
             }, 500);
